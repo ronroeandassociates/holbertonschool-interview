@@ -21,11 +21,13 @@ def canUnlockAll(boxes):
     The method will loop through the list of boxes
     and check if all the boxes can be opened
     """
-    keys = set()
-    for box in boxes:
-        keys.update(box)
-    for box in boxes:
-        for key in box:
-            if key not in keys:
-                return False
-    return True
+    keyset = {0}
+
+    for key in boxes[0]:
+        if (0 <= key < len(boxes)) and key not in keyset:
+            boxes[0].extend(boxes[key])
+            keyset.add(key)
+        if len(keyset) == len(boxes):
+            return True
+        else:
+            return False
