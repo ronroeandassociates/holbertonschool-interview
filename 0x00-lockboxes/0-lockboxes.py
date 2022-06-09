@@ -27,7 +27,6 @@ def canUnlockAll(boxes):
         if (0 <= key < len(boxes)) and key not in keyset:
             boxes[0].extend(boxes[key])
             keyset.add(key)
-        if len(keyset) == len(boxes):
-            return True
-        else:
-            return False
+
+    # print(keyset)
+    return len(keyset) == len(boxes)
