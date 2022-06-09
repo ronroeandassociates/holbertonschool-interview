@@ -17,17 +17,25 @@ boxes is a list of lists
 
 
 def canUnlockAll(boxes):
-    """
-    The method will loop through the list of boxes
-    and check if all the boxes can be opened
-    """
-    keyset = {0}
+    """ Returns True if all boxes can be opened"""
+    # Create start list of keys
+    keyList = [0]
 
-    for key in boxes[0]:
-        if (0 <= key < len(boxes)) and key not in keyset:
-            boxes[0].extend(boxes[key])
-            keyset.add(key)
-        if len(keyset) == len(boxes):
-            return True
-        else:
-            return False
+    # Copy list of keys to new list
+    testkeyList = keyList[0]
+
+    # run through all keys in boxes
+    for key in keyList:
+        # run through all keys in boxes
+        for box in boxes:
+            # if key is in box
+            if key in box:
+                # add key to testkeyList
+                testkeyList.append(key)
+                # remove key from box
+                box.remove(key)
+    # if testkeyList is same as keyList
+    if len(keyList) == len(testkeyList):
+        return True
+    else:
+        return False
