@@ -1,0 +1,12 @@
+# ignore pycache
+.pyc
+# ignore main.py
+main
+# ignore __pycache__
+__pycache__
+# ignore .DS_Store
+.DS_Store
+# ignore .gitignore
+.gitignore
+# ignore .gitmodules
+.gitmodules
