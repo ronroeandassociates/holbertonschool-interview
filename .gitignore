@@ -2,6 +2,7 @@
 .pyc
 # ignore main.py
 main
+main_0.py
 # ignore __pycache__
 __pycache__
 # ignore .DS_Store
