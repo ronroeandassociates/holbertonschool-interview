@@ -3,3 +3,5 @@
 # holbertonschool-interview
 
 Repository for the Holberton School interview exercises.
+0x00-Lockboxes
+0x02-minimum_operations
