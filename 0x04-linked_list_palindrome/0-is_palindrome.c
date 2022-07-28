@@ -2,33 +2,37 @@
 
 /**
  * is_palindrome - checks if a number is a palindrome
- * @n: number to check
+ * @head: pointer to the head of the linked list
  *
  * Return: 1 if it is a palindrome, 0 otherwise
  */
 int is_palindrome(listint_t **head)
 {
-  int length = list_length(head);
-  int half_length = length / 2;
-  int i, if_palindrome = 1;
-  listint_t *reversed_head;
-  listint_t *current = *head;
-  listint_t *current_reversed;
+  if (!head || !*head)
+    return (1);
 
-  reversed_head = *head;
-  for (i = 0; i < half_length; i++)
-    reversed_head = reversed_head->next;
-  if (length % 2 != 0)
-    reversed_head = reversed_head->next;
-  reversed_head = reversed(&reversed_head);
-  current_reversed = reversed_head;
-  current = *head;
-  while (current_reversed != NULL)
-  {
-    if (current_reversed->n != current->n)
-      if_palindrome = 0;
-    current_reversed = current_reversed->next;
-    current = current->next;
-  }
-  return (if_palindrome);
+  return (is_palindrome_helper(head, *head));
+}
+/**
+ * @brief  using helper function to check
+ * if a number is a palindrome
+ * @left: that starts at head stops at head
+ * @right: that starts at mid stops at end
+ *
+ */
+
+int is_palindrome_helper(listint_t **left, listint_t *right)
+{
+  if (!right)
+    return (1);
+
+  if (!is_palindrome_helper(left, right->next))
+    return (0);
+
+  if ((*left)->n != right->n)
+    return (0);
+
+  *left = (*left)->next;
+
+  return (1);
 }
