@@ -7,16 +7,20 @@
  * is a palindrome
  * Return: 1 if the list is a palindrome, 0 otherwise
  */
-
-int recursive_is_palindrome(listint_t *head, listint_t *tail)
+int recursive(listint_t **head, listint_t *tail)
 {
-  if (head == NULL)
+  int isPAlindrome;
+
+  if (!tail)
     return (1);
-  if (head->next == tail)
-    return (1);
-  if (head->n != tail->n)
+
+  isPAlindrome = recursive(head, tail->next) && ((*head)->n == tail->n);
+  if (!isPAlindrome)
     return (0);
-  return (recursive_is_palindrome(head->next, tail->next));
+
+  *head = (*head)->next;
+
+  return (isPAlindrome);
 }
 
 /**
@@ -28,12 +32,5 @@ int recursive_is_palindrome(listint_t *head, listint_t *tail)
 
 int is_palindrome(listint_t **head)
 {
-  listint_t *tail;
-
-  if (head == NULL || *head == NULL)
-    return (1);
-  tail = *head;
-  while (tail->next != NULL)
-    tail = tail->next;
-  return (recursive_is_palindrome(*head, tail));
+  return (recursive(head, *head));
 }
