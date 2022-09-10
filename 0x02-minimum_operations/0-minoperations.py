@@ -28,7 +28,7 @@ def minOperations(n):
     if n < 2 or type(n) is not int:
         return 0
     count = 1
-    lists = list()
+    lists = []
     value = n
     while value != 1:
         count += 1
