@@ -18,7 +18,7 @@ grid is a list of list of integers:
 
 
 def island_perimeter(grid):
-    # returns the perimeter of the island described
+    """ returns the perimeter of the island described """
     perimeter = 0
 
     for water in range(len(grid)):
