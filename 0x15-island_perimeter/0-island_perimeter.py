@@ -28,5 +28,5 @@ def island_perimeter(grid):
                 if water > 0 and grid[water - 1][land] == 1:
                     water -= 1
                 if land > 0 and grid[water][land - 1] == 1:
-                    land -= 2
+                    land -= 1
     return perimeter
