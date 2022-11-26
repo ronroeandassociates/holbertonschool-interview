@@ -20,12 +20,12 @@ grid is a list of list of integers:
 def island_perimeter(grid):
     """Returns the perimeter of the island described in grid"""
     perimeter = 0
-    for i in range(len(grid)):
-        for land in range(len(grid[i])):
-            if grid[i][land] == 1:
+    for water in range(len(grid)):
+        for land in range(len(grid[water])):
+            if grid[water][land] == 1:
                 perimeter += 4
-                if i > 0 and grid[i - 1][land] == 1:
+                if water > 0 and grid[water - 1][land] == 1:
                     perimeter -= 2
-                if land > 0 and grid[i][land - 1] == 1:
+                if land > 0 and grid[water][land - 1] == 1:
                     perimeter -= 2
     return perimeter
